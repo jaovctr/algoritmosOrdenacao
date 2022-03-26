@@ -8,7 +8,7 @@ import java.util.Scanner;
 import com.paa.algoritmos.*;
 /**
  * @author jaovctr
- * @version 1.0
+ * @version 1.1
  * @since 1.0
  * TODO CONTADOR DE TEMPO
  * bubblesort - j pedro
@@ -25,8 +25,8 @@ public class Main {
 		int[] crescente = listaCrescente(tamanho);
 		int[] decrescente=listaDecrescente(tamanho);
 		int[] aleatorio=listaAleatoria(tamanho);
-		//ordenandoMerge(crescente, decrescente, aleatorio);
-	//	ordenandoHeap(crescente, decrescente, aleatorio);
+		ordenandoMerge(crescente, decrescente, aleatorio);
+		ordenandoHeap(crescente, decrescente, aleatorio);
 		ordenandoQuick(crescente, decrescente, aleatorio);
 		
 		
