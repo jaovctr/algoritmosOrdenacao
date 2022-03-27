@@ -3,18 +3,13 @@
  */
 package com.paa.main;
 import java.util.Random;
-import java.util.Scanner;
+
 
 import com.paa.algoritmos.*;
 /**
  * @author jaovctr
- * @version 1.1
+ * @version 1.3
  * @since 1.0
- * TODO CONTADOR DE TEMPO
- * bubblesort - j pedro
- * insertionsort - j pedro
- * teste com 100 1k 5k 30k 50k 100k 150k 200k
- * 
  */
 public class Main {
 	public static void main(String[] args) {
@@ -28,6 +23,14 @@ public class Main {
 			int[] decrescente=listaDecrescente(tamanhos[i]);
 			int[] aleatorio=listaAleatoria(tamanhos[i]);
 			
+			int[] bubbleCrescente = crescente.clone();
+			int[] bubbleDecrescente = decrescente.clone();
+			int[] bubbleAleatorio = aleatorio.clone();
+			
+			int[] insertionCrescente = crescente.clone();
+			int[] insertionDecrescente = decrescente.clone();
+			int[] insertionAleatorio = aleatorio.clone();
+			
 			int[] mergeCrescente= crescente.clone();
 			int[] mergeDecrescente=decrescente.clone();
 			int[] mergeAleatorio=aleatorio.clone();
@@ -39,9 +42,13 @@ public class Main {
 			int[] quickCrescente = crescente.clone();
 			int[] quickDecrescente = decrescente.clone();
 			int[] quickAleatorio = aleatorio.clone();
-			
+						
 			System.out.println("----------------\n");
 			System.out.println("Testes com "+tamanhos[i]+" elementos\n");
+			
+			ordenandoBubble(bubbleCrescente, bubbleDecrescente, bubbleAleatorio);
+			
+			ordenandoIsertion(insertionCrescente, insertionDecrescente, insertionAleatorio);
 			
 			ordenandoMerge(mergeCrescente, mergeDecrescente, mergeAleatorio);
 			
@@ -54,7 +61,112 @@ public class Main {
 		
 	}
 
+	public static void ordenandoBubble(int[] crescente, int[] decrescente, int[]aleatorio) {
+		System.out.println("BUBBLE SORT:");
+		
+		for(int i=0;i<3;i++) {
+			int[] crescenteBackup=crescente.clone();
+			System.out.println("Ordenando crescente pela "+ (i+1) +"º vez: ");
+			
+			long inicio=System.currentTimeMillis();
+			BubbleSort.bubbleSort(crescenteBackup);
+			long fim= System.currentTimeMillis();
+			
+			BubbleSort.getComparacoes();
+			BubbleSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
+		 
+		
+		for(int i=0;i<3;i++) {
+			int[] decrescenteBackup=decrescente.clone();
+			System.out.println("Ordenando decrescente pela "+ (i+1) +"º vez: ");
+			
+			long inicio=System.currentTimeMillis();
+			BubbleSort.bubbleSort(decrescenteBackup);
+			long fim= System.currentTimeMillis();
+			
+			BubbleSort.getComparacoes();
+			BubbleSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
+		
+		
+		for(int i=0;i<3;i++) {
+			int[] aleatorioBackup=aleatorio.clone();
+			System.out.println("Ordenando aleatorio pela "+ (i+1) +"º vez: ");
 
+			long inicio=System.currentTimeMillis();
+			BubbleSort.bubbleSort(aleatorioBackup);
+			long fim=System.currentTimeMillis();
+
+			BubbleSort.getComparacoes();
+			BubbleSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
+		
+		
+	}
+	
+	public static void ordenandoIsertion(int[] crescente, int[] decrescente, int[]aleatorio) {
+		System.out.println("INSERTION SORT:");
+		
+		for(int i=0;i<3;i++) {
+			int[] crescenteBackup=crescente.clone();
+			System.out.println("Ordenando crescente pela "+ (i+1) +"º vez: ");
+			
+			long inicio=System.currentTimeMillis();
+			InsertionSort.insertionSort(crescenteBackup);
+			long fim= System.currentTimeMillis();
+			
+			InsertionSort.getComparacoes();
+			InsertionSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
+		 
+		
+		for(int i=0;i<3;i++) {
+			int[] decrescenteBackup=decrescente.clone();
+			System.out.println("Ordenando decrescente pela "+ (i+1) +"º vez: ");
+			
+			long inicio=System.currentTimeMillis();
+			InsertionSort.insertionSort(decrescenteBackup);
+			long fim= System.currentTimeMillis();
+			
+			InsertionSort.getComparacoes();
+			InsertionSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
+		
+		
+		for(int i=0;i<3;i++) {
+			int[] aleatorioBackup=aleatorio.clone();
+			System.out.println("Ordenando aleatorio pela "+ (i+1) +"º vez: ");
+
+			long inicio=System.currentTimeMillis();
+			InsertionSort.insertionSort(aleatorioBackup);
+			long fim=System.currentTimeMillis();
+
+			InsertionSort.getComparacoes();
+			InsertionSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
+		
+		
+	}
+	
 	public static void ordenandoMerge(int[] crescente, int[] decrescente, int[]aleatorio) {
 		System.out.println("MERGE SORT:");
 		
@@ -103,7 +215,7 @@ public class Main {
 			
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
 		}
-		System.out.println("\n\n\n---\n\n\n");
+		System.out.println("\n---\n");
 		
 	}
 	

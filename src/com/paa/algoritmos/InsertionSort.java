@@ -3,27 +3,42 @@ package com.paa.algoritmos;
 
 /**
  * @author jpedr
- * @version 1.0
+ * @author jaovctr
+ * @version 1.1
  * @since 1.0
  * 
  */
 
 public class InsertionSort {
 
-    public static int comparacoes = 0;
-
+    public static long comparacoes = 0;
+    
+    /**
+	 * @return the comparacoes
+	 */
+	public static void getComparacoes() {
+		System.out.println("Comparacoes: "+ comparacoes);
+	}
+	/**
+	 * @param comparacoes the comparacoes to set
+	 */
+	public static void setComparacoes(int comparacoes) {
+		BubbleSort.comparacoes = comparacoes;
+	}
+    
+    
     /*
      * Implementado como descrito na página 18 do livro do Cormen.
      */
-    public static int[] insertionSort(int[] A){
+    public static void insertionSort(int[] A){
 
         comparacoes = 0;
 
-        for (int j = 2; j <= A.length; j++){
+        for (int j = 1; j < A.length; j++){
             int key = A[j];
             int i = j - 1;
 
-            while(i > 0 && A[i] > key){
+            while(i >= 0 && A[i] > key){
                 comparacoes += 1;
                 A[i + 1] = A[i];
                 i = i - 1;
@@ -31,7 +46,6 @@ public class InsertionSort {
 
             A[i + 1] = key;
         }
-
-        return A;
+      
     }
 }

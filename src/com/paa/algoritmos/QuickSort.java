@@ -5,11 +5,11 @@ package com.paa.algoritmos;
 
 /**
  * @author jaovctr
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public class QuickSort {
-	private static int comparacoes=0;
+	private static long comparacoes=0;
 	
 	/**
 	 * @return the comparacoes

@@ -10,7 +10,7 @@ package com.paa.algoritmos;
  * TODO CONTADOR
  */
 public class HeapSort {
-	private static int comparacoes=0;
+	private static long comparacoes=0;
 	
 	/**
 	 * @return the comparacoes

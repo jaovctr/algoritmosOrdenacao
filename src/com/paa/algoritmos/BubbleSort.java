@@ -5,14 +5,28 @@ package com.paa.algoritmos;
 
 /**
  * @author jpedr
- * @version 1.0
+ * @author jaovctr
+ * @version 1.1
  * @since 1.0
  * 
  */
 public class BubbleSort {
 
-    public static int comparacoes = 0;
+    public static long comparacoes = 0;
 
+    /**
+	 * @return the comparacoes
+	 */
+	public static void getComparacoes() {
+		System.out.println("Comparacoes: "+ comparacoes);
+	}
+	/**
+	 * @param comparacoes the comparacoes to set
+	 */
+	public static void setComparacoes(int comparacoes) {
+		BubbleSort.comparacoes = comparacoes;
+	}
+    
     public static int[] bubbleSort(int[] A){
 
         comparacoes = 0;
