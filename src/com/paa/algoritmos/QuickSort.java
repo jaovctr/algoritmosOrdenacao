@@ -5,7 +5,7 @@ package com.paa.algoritmos;
 
 /**
  * @author jaovctr
- * @version 1.2
+ * @version 1.3
  * @since 1.0
  */
 public class QuickSort {
@@ -14,8 +14,8 @@ public class QuickSort {
 	/**
 	 * @return the comparacoes
 	 */
-	public static void getComparacoes() {
-		System.out.println("Comparacoes: "+ comparacoes);
+	public static long getComparacoes() {
+		return comparacoes;
 	}
 	/**
 	 * @param comparacoes the comparacoes to set

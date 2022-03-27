@@ -8,7 +8,7 @@ import java.util.Random;
 import com.paa.algoritmos.*;
 /**
  * @author jaovctr
- * @version 1.3
+ * @version 1.4
  * @since 1.0
  */
 public class Main {
@@ -64,21 +64,30 @@ public class Main {
 	public static void ordenandoBubble(int[] crescente, int[] decrescente, int[]aleatorio) {
 		System.out.println("BUBBLE SORT:");
 		
+		long tempos=0;
+		long comparacoes=0;
 		for(int i=0;i<3;i++) {
 			int[] crescenteBackup=crescente.clone();
 			System.out.println("Ordenando crescente pela "+ (i+1) +"º vez: ");
 			
 			long inicio=System.currentTimeMillis();
 			BubbleSort.bubbleSort(crescenteBackup);
-			long fim= System.currentTimeMillis();
+			long fim= System.currentTimeMillis();			
 			
-			BubbleSort.getComparacoes();
-			BubbleSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+BubbleSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + BubbleSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			BubbleSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
 		 
+		comparacoes=0;
+		tempos=0;
 		
 		for(int i=0;i<3;i++) {
 			int[] decrescenteBackup=decrescente.clone();
@@ -88,12 +97,20 @@ public class Main {
 			BubbleSort.bubbleSort(decrescenteBackup);
 			long fim= System.currentTimeMillis();
 			
-			BubbleSort.getComparacoes();
-			BubbleSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+BubbleSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + BubbleSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			BubbleSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 		
 		for(int i=0;i<3;i++) {
@@ -104,12 +121,20 @@ public class Main {
 			BubbleSort.bubbleSort(aleatorioBackup);
 			long fim=System.currentTimeMillis();
 
-			BubbleSort.getComparacoes();
-			BubbleSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+BubbleSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + BubbleSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			BubbleSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 		
 	}
@@ -117,6 +142,8 @@ public class Main {
 	public static void ordenandoIsertion(int[] crescente, int[] decrescente, int[]aleatorio) {
 		System.out.println("INSERTION SORT:");
 		
+		long tempos=0;
+		long comparacoes=0;
 		for(int i=0;i<3;i++) {
 			int[] crescenteBackup=crescente.clone();
 			System.out.println("Ordenando crescente pela "+ (i+1) +"º vez: ");
@@ -125,12 +152,20 @@ public class Main {
 			InsertionSort.insertionSort(crescenteBackup);
 			long fim= System.currentTimeMillis();
 			
-			InsertionSort.getComparacoes();
-			InsertionSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+InsertionSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + InsertionSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			InsertionSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		 
 		
 		for(int i=0;i<3;i++) {
@@ -141,12 +176,20 @@ public class Main {
 			InsertionSort.insertionSort(decrescenteBackup);
 			long fim= System.currentTimeMillis();
 			
-			InsertionSort.getComparacoes();
-			InsertionSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+InsertionSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + InsertionSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			InsertionSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 		
 		for(int i=0;i<3;i++) {
@@ -157,12 +200,20 @@ public class Main {
 			InsertionSort.insertionSort(aleatorioBackup);
 			long fim=System.currentTimeMillis();
 
-			InsertionSort.getComparacoes();
-			InsertionSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+InsertionSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + InsertionSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			InsertionSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 		
 	}
@@ -170,6 +221,8 @@ public class Main {
 	public static void ordenandoMerge(int[] crescente, int[] decrescente, int[]aleatorio) {
 		System.out.println("MERGE SORT:");
 		
+		long tempos=0;
+		long comparacoes=0;
 		for(int i=0;i<3;i++) {
 			int[] crescenteBackup=crescente.clone();
 			System.out.println("Ordenando crescente pela "+ (i+1) +"º vez: ");
@@ -178,12 +231,20 @@ public class Main {
 			MergeSort.mergeSort(crescenteBackup, 0, crescenteBackup.length-1);
 			long fim= System.currentTimeMillis();
 			
-			MergeSort.getComparacoes();
-			MergeSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+MergeSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + MergeSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			MergeSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 		
 		for(int i=0;i<3;i++) {
@@ -194,12 +255,20 @@ public class Main {
 			MergeSort.mergeSort(decrescenteBackup, 0, decrescenteBackup.length-1);
 			long fim= System.currentTimeMillis();
 			
-			MergeSort.getComparacoes();
-			MergeSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+MergeSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + MergeSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			MergeSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 		
 		for(int i=0;i<3;i++) {
@@ -210,19 +279,28 @@ public class Main {
 			MergeSort.mergeSort(aleatorioBackup, 0, aleatorioBackup.length-1);
 			long fim=System.currentTimeMillis();
 
-			MergeSort.getComparacoes();
-			MergeSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+MergeSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + MergeSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			MergeSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 	}
 	
 	public static void ordenandoHeap(int[] crescente, int[] decrescente, int[]aleatorio) {
 		System.out.println("HEAP SORT");
 		
-		
+		long tempos=0;
+		long comparacoes=0;
 		for(int i=0;i<3;i++) {
 			int[] crescenteBackup=crescente.clone();
 			System.out.println("Ordenando crescente pela "+ (i+1) +"º vez: ");
@@ -231,13 +309,20 @@ public class Main {
 			HeapSort.heapSort(crescenteBackup);
 			long fim= System.currentTimeMillis();
 			
-			HeapSort.getComparacoes();
-			HeapSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+HeapSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + HeapSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
 			
+			HeapSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 		
 		for(int i=0;i<3;i++) {
@@ -249,12 +334,20 @@ public class Main {
 			HeapSort.heapSort(decrescenteBackup);
 			long fim= System.currentTimeMillis();
 			
-			HeapSort.getComparacoes();
-			HeapSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+HeapSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + HeapSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			HeapSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 		
 		for(int i=0;i<3;i++) {
@@ -265,18 +358,27 @@ public class Main {
 			HeapSort.heapSort(aleatorioBackup);
 			long fim= System.currentTimeMillis();
 			
-			HeapSort.getComparacoes();
-			HeapSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+HeapSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + HeapSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			HeapSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 	}
 	
 	public static void ordenandoQuick(int[] crescente, int[] decrescente, int[]aleatorio) {
 		System.out.println("QUICK SORT");
 		
-		
+		long tempos=0;
+		long comparacoes=0;
 		for(int i=0;i<3;i++) {
 			int[] crescenteBackup=crescente.clone();
 			System.out.println("Ordenando crescente pela "+ (i+1)+ "º vez:");
@@ -285,12 +387,20 @@ public class Main {
 			QuickSort.quickSort(crescenteBackup, 0, crescenteBackup.length-1);
 			long fim=System.currentTimeMillis();
 			
-			QuickSort.getComparacoes();
-			QuickSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+QuickSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + QuickSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			QuickSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 		
 		for(int i=0;i<3;i++) {
@@ -301,12 +411,20 @@ public class Main {
 			QuickSort.quickSort(decrescenteBackup, 0, decrescenteBackup.length-1);
 			long fim=System.currentTimeMillis();
 			
-			QuickSort.getComparacoes();
-			QuickSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+QuickSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + QuickSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			QuickSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 		
 		
 		for(int i=0;i<3;i++) {
@@ -317,12 +435,20 @@ public class Main {
 			QuickSort.quickSort(aleatorioBackup, 0, aleatorioBackup.length-1);
 			long fim=System.currentTimeMillis();
 			
-			QuickSort.getComparacoes();
-			QuickSort.setComparacoes(0);
+			tempos=tempos+(fim-inicio);
+			comparacoes=comparacoes+QuickSort.getComparacoes();
 			
+			System.out.println("Comparacoes: " + QuickSort.getComparacoes());
 			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+			QuickSort.setComparacoes(0);
 		}
+		System.out.println("Media de comparacoes: "+(comparacoes/3.0));
+		System.out.println("Media de tempo: "+(tempos/3.0));
 		System.out.println("\n---\n");
+		 
+		comparacoes=0;
+		tempos=0;
 	}
 	
 	

@@ -5,9 +5,9 @@ package com.paa.algoritmos;
 
 /**
  * @author jaovctr
- * @version 1.0
+ * @version 1.1
  * @since 1.0
- * TODO CONTADOR
+ * 
  */
 public class HeapSort {
 	private static long comparacoes=0;
@@ -15,8 +15,8 @@ public class HeapSort {
 	/**
 	 * @return the comparacoes
 	 */
-	public static void getComparacoes() {
-		System.out.println("Comparacoes: "+ comparacoes);
+	public static long getComparacoes() {
+		return comparacoes;
 	}
 	/**
 	 * @param comparacoes the comparacoes to set

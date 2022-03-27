@@ -6,7 +6,7 @@ package com.paa.algoritmos;
 /**
  * @author jpedr
  * @author jaovctr
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  * 
  */
@@ -17,8 +17,8 @@ public class BubbleSort {
     /**
 	 * @return the comparacoes
 	 */
-	public static void getComparacoes() {
-		System.out.println("Comparacoes: "+ comparacoes);
+	public static long getComparacoes() {
+		return comparacoes;
 	}
 	/**
 	 * @param comparacoes the comparacoes to set
