@@ -16,7 +16,7 @@ public class HeapSort {
 	 * @return the comparacoes
 	 */
 	public static void getComparacoes() {
-		System.out.println("Comparações: "+ comparacoes);
+		System.out.println("Comparacoes: "+ comparacoes);
 	}
 	/**
 	 * @param comparacoes the comparacoes to set
@@ -27,32 +27,38 @@ public class HeapSort {
 	
 	public static void heapSort(int[] A) {
 		
-		
 		constroiHeapMax(A);
 	}
 	
 	private static void constroiHeapMax(int[] A) {
 		int tamanhoHeap=A.length;
-		for(int i=(tamanhoHeap/2)-1;i>=0;i--) {
-			refazHeapMax(A,i);
+		for(int i=((tamanhoHeap+1)/2)-1;i>=0;i--) {
+			refazHeapMax(A,i, tamanhoHeap);
 		}
+		for(int i=tamanhoHeap-1;i>0;i--) {
+			trocar(A, 0, i);
+			refazHeapMax(A, 0, i);
+		}
+		
 	}
 	
-	private static void refazHeapMax(int[] A, int i) {
-		int esquerda = (i*2+1);
-		int direita = (i*2+2);
+	private static void refazHeapMax(int[] A, int i, int tamanhoHeap) {
+		int esquerda = (2*i);
+		int direita = (2*i)+1;
 		int maior=i;
-		int tamanho=A.length;
-		if(esquerda< tamanho && A[esquerda]>A[maior]) {
+		
+		if(esquerda < tamanhoHeap && A[esquerda]>A[maior]) {
 			maior=esquerda;
 			comparacoes++;
-		}else if(direita<tamanho && A[direita]>A[maior]) {
+		}
+		if(direita<tamanhoHeap && A[direita]>A[maior]) {
 			maior=direita;
 			comparacoes++;
-		}else if(maior!=i){
+		}
+		if(maior!=i){
 			trocar(A,i,maior);
 			comparacoes++;
-			refazHeapMax(A, maior);
+			refazHeapMax(A, maior, tamanhoHeap);
 		}
 			
 	}

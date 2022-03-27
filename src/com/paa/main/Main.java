@@ -18,16 +18,38 @@ import com.paa.algoritmos.*;
  */
 public class Main {
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
-
-		System.out.println("Digite o tamanho das listas:");
-		int tamanho=input.nextInt();
-		int[] crescente = listaCrescente(tamanho);
-		int[] decrescente=listaDecrescente(tamanho);
-		int[] aleatorio=listaAleatoria(tamanho);
-		ordenandoMerge(crescente, decrescente, aleatorio);
-		ordenandoHeap(crescente, decrescente, aleatorio);
-		ordenandoQuick(crescente, decrescente, aleatorio);
+		
+		int[] tamanhos = {100,1000,5000,30000,50000,100000,150000,200000};
+		
+		for(int i = 0; i<tamanhos.length;i++) {
+			
+			
+			int[] crescente = listaCrescente(tamanhos[i]);
+			int[] decrescente=listaDecrescente(tamanhos[i]);
+			int[] aleatorio=listaAleatoria(tamanhos[i]);
+			
+			int[] mergeCrescente= crescente.clone();
+			int[] mergeDecrescente=decrescente.clone();
+			int[] mergeAleatorio=aleatorio.clone();
+			
+			int[] heapCrescente= crescente.clone();
+			int[] heapDecrescente=decrescente.clone();
+			int[] heapAleatorio=aleatorio.clone();
+			
+			int[] quickCrescente = crescente.clone();
+			int[] quickDecrescente = decrescente.clone();
+			int[] quickAleatorio = aleatorio.clone();
+			
+			System.out.println("----------------\n");
+			System.out.println("Testes com "+tamanhos[i]+" elementos\n");
+			
+			ordenandoMerge(mergeCrescente, mergeDecrescente, mergeAleatorio);
+			
+			ordenandoHeap(heapCrescente, heapDecrescente, heapAleatorio);
+				
+			ordenandoQuick(quickCrescente, quickDecrescente, quickAleatorio);
+		}
+		
 		
 		
 	}
@@ -36,62 +58,161 @@ public class Main {
 	public static void ordenandoMerge(int[] crescente, int[] decrescente, int[]aleatorio) {
 		System.out.println("MERGE SORT:");
 		
-		System.out.println("Ordenando crescente:");
-		MergeSort.mergeSort(crescente, 0, crescente.length-1);
-		MergeSort.getComparacoes();
-		MergeSort.setComparacoes(0);
+		for(int i=0;i<3;i++) {
+			int[] crescenteBackup=crescente.clone();
+			System.out.println("Ordenando crescente pela "+ (i+1) +"º vez: ");
+			
+			long inicio=System.currentTimeMillis();
+			MergeSort.mergeSort(crescenteBackup, 0, crescenteBackup.length-1);
+			long fim= System.currentTimeMillis();
+			
+			MergeSort.getComparacoes();
+			MergeSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
 		
-		System.out.println("Ordenando decrescente:");
-		MergeSort.mergeSort(decrescente, 0, decrescente.length-1);
-		MergeSort.getComparacoes();
-		MergeSort.setComparacoes(0);
 		
-		System.out.println("Ordenando aleatorio:");
-		MergeSort.mergeSort(aleatorio, 0, aleatorio.length-1);
-		MergeSort.getComparacoes();
-		MergeSort.setComparacoes(0);
+		for(int i=0;i<3;i++) {
+			int[] decrescenteBackup=decrescente.clone();
+			System.out.println("Ordenando decrescente pela "+ (i+1) +"º vez: ");
+			
+			long inicio=System.currentTimeMillis();
+			MergeSort.mergeSort(decrescenteBackup, 0, decrescenteBackup.length-1);
+			long fim= System.currentTimeMillis();
+			
+			MergeSort.getComparacoes();
+			MergeSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
+		
+		
+		for(int i=0;i<3;i++) {
+			int[] aleatorioBackup=aleatorio.clone();
+			System.out.println("Ordenando aleatorio pela "+ (i+1) +"º vez: ");
+
+			long inicio=System.currentTimeMillis();
+			MergeSort.mergeSort(aleatorioBackup, 0, aleatorioBackup.length-1);
+			long fim=System.currentTimeMillis();
+
+			MergeSort.getComparacoes();
+			MergeSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n\n\n---\n\n\n");
 		
 	}
 	
 	public static void ordenandoHeap(int[] crescente, int[] decrescente, int[]aleatorio) {
 		System.out.println("HEAP SORT");
 		
-		System.out.println("Ordenando crescente:");
-		HeapSort.heapSort(crescente);
-		HeapSort.getComparacoes();
-		HeapSort.setComparacoes(0);
 		
-		System.out.println("Ordenando decrescente:");
-		HeapSort.heapSort(decrescente);
-		HeapSort.getComparacoes();
-		HeapSort.setComparacoes(0);
+		for(int i=0;i<3;i++) {
+			int[] crescenteBackup=crescente.clone();
+			System.out.println("Ordenando crescente pela "+ (i+1) +"º vez: ");
+			
+			long inicio=System.currentTimeMillis();
+			HeapSort.heapSort(crescenteBackup);
+			long fim= System.currentTimeMillis();
+			
+			HeapSort.getComparacoes();
+			HeapSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+			
+		}
+		System.out.println("\n---\n");
 		
-		System.out.println("Ordenando aleatorio:");
-		HeapSort.heapSort(aleatorio);
-		HeapSort.getComparacoes();
-		HeapSort.setComparacoes(0);
+		
+		for(int i=0;i<3;i++) {
+			int[] decrescenteBackup=decrescente.clone();
+			
+			System.out.println("Ordenando decrescente pela "+ (i+1)+ "º vez:");
+			
+			long inicio=System.currentTimeMillis();
+			HeapSort.heapSort(decrescenteBackup);
+			long fim= System.currentTimeMillis();
+			
+			HeapSort.getComparacoes();
+			HeapSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
 		
 		
+		for(int i=0;i<3;i++) {
+			int[] aleatorioBackup=aleatorio.clone();
+			System.out.println("Ordenando aleatorio pela "+ (i+1)+ "º vez:");
+			
+			long inicio=System.currentTimeMillis();
+			HeapSort.heapSort(aleatorioBackup);
+			long fim= System.currentTimeMillis();
+			
+			HeapSort.getComparacoes();
+			HeapSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
 	}
 	
 	public static void ordenandoQuick(int[] crescente, int[] decrescente, int[]aleatorio) {
 		System.out.println("QUICK SORT");
 		
-		System.out.println("Ordenando Crescente:");
-		QuickSort.quickSort(crescente, 0, crescente.length-1);
-		QuickSort.getComparacoes();
-		QuickSort.setComparacoes(0);
 		
-		System.out.println("Ordenando Decrescente:");
-		QuickSort.quickSort(decrescente, 0, decrescente.length-1);
-		QuickSort.getComparacoes();
-		QuickSort.setComparacoes(0);
+		for(int i=0;i<3;i++) {
+			int[] crescenteBackup=crescente.clone();
+			System.out.println("Ordenando crescente pela "+ (i+1)+ "º vez:");
+			
+			long inicio=System.currentTimeMillis();
+			QuickSort.quickSort(crescenteBackup, 0, crescenteBackup.length-1);
+			long fim=System.currentTimeMillis();
+			
+			QuickSort.getComparacoes();
+			QuickSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
 		
-		System.out.println("Ordenando Aleatorio:");
-		QuickSort.quickSort(aleatorio, 0, aleatorio.length-1);
-		QuickSort.getComparacoes();
-		QuickSort.setComparacoes(0);
+		
+		for(int i=0;i<3;i++) {
+			int[] decrescenteBackup=decrescente.clone();
+			System.out.println("Ordenando decrescente pela "+ (i+1)+ "º vez:");
+			
+			long inicio=System.currentTimeMillis();
+			QuickSort.quickSort(decrescenteBackup, 0, decrescenteBackup.length-1);
+			long fim=System.currentTimeMillis();
+			
+			QuickSort.getComparacoes();
+			QuickSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
+		
+		
+		for(int i=0;i<3;i++) {
+			int[] aleatorioBackup=aleatorio.clone();
+			System.out.println("Ordenando aleatorio pela "+ (i+1)+ "º vez:");
+			
+			long inicio=System.currentTimeMillis();
+			QuickSort.quickSort(aleatorioBackup, 0, aleatorioBackup.length-1);
+			long fim=System.currentTimeMillis();
+			
+			QuickSort.getComparacoes();
+			QuickSort.setComparacoes(0);
+			
+			System.out.println("Tempo da execucao "+ (i+1) +": " + (fim-inicio));
+		}
+		System.out.println("\n---\n");
 	}
+	
 	
 	public static int[] listaCrescente(int tamanho) {		
 		int[] lista=new int[tamanho];

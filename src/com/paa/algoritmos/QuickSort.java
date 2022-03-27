@@ -15,7 +15,7 @@ public class QuickSort {
 	 * @return the comparacoes
 	 */
 	public static void getComparacoes() {
-		System.out.println("Comparações: "+ comparacoes);
+		System.out.println("Comparacoes: "+ comparacoes);
 	}
 	/**
 	 * @param comparacoes the comparacoes to set
