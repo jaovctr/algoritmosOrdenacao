@@ -11,7 +11,7 @@ import com.paa.algoritmos.*;
  * @version 1.4
  * @since 1.0
  */
-public class Main {
+public class ParteI {
 	public static void main(String[] args) {
 		
 		int[] tamanhos = {100,1000,5000,30000,50000,100000,150000,200000};

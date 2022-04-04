@@ -23,7 +23,7 @@ public class InsertionSort {
 	 * @param comparacoes the comparacoes to set
 	 */
 	public static void setComparacoes(int comparacoes) {
-		BubbleSort.comparacoes = comparacoes;
+		InsertionSort.comparacoes = comparacoes;
 	}
     
     
