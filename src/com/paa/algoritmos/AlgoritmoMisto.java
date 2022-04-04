@@ -27,13 +27,16 @@ public class AlgoritmoMisto {
 		if(A.length<1000) {
 			InsertionSort.insertionSort(A);
 			comparacoes=InsertionSort.getComparacoes();
+			InsertionSort.setComparacoes(0);
 		}else {
 			if(checaOrdenacao(A)) {
 				InsertionSort.insertionSort(A);
 				comparacoes=InsertionSort.getComparacoes();
+				InsertionSort.setComparacoes(0);
 			}else {
 				QuickSort.quickSort(A, i, j);
 				comparacoes=QuickSort.getComparacoes();
+				QuickSort.setComparacoes(0);
 			}
 		}
 	}
